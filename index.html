@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Emotions tracker</title>
+    <!-- <link rel="stylesheet" href="style.css" -->
+    <script src="script.js"></script>
+  </head>
+  <body>
+    <div class="container1">
+      <header>
+        <h1>Emoional tracker</h1>
+        <h2>Track your emotions and feelings, and get inspired</h2>
+      </header>
+
+      <main>
+        <!-- Выбор эмоции -->
+        <selection id="emotions-selection">
+          <h2>How do you feel today?</h2>
+          <div class="emotions">
+            <button id="happy">Happy</button>
+            <button id="sad">Sad</button>
+            <button id="angry">Angry</button>
+            <button id="tired">Tired</button>
+            <button id="inspired">Inspired</button>
+            <button id="bored">Bored</button>
+            <button id="stressed">Stressed</button>
+            <button id="anxious">Anxious</button>
+            <button id="excited">Excited</button>
+            <button id="relaxed">Relaxed</button>
+          </div>
+          <textarea id="note" plaseholder="What's on your mind?"></textarea>
+          <button id="savenote">Save</button>
+        </selection>
+
+        <!-- Календарь -->
+        <section id="calendersection">
+          <h2>Calendar</h2>
+          <div id="calendar"></div>
+        </section>
+
+        <!-- Мотивационная цитата -->
+        <section id="quotesection">
+          <h2>
+            Quote of the day <button onclick="getquote()">Get quote!</button>
+          </h2>
+          <blockquote id="quote">«There shoud be a quoute here!»</blockquote>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>
