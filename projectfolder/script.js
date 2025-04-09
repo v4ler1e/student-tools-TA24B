@@ -1,11 +1,30 @@
-// Эта функция генерирует случайное число в диапазоне от min до max
-function getRandomInt(min, max) {
-  const minCeiled = Math.ceil(min);
-  const maxFloored = Math.floor(max);
-  return Math.floor(Math.random() * (maxFloored - minCeiled) + minCeiled); // The maximum is exclusive and the minimum is inclusive
-}
+let currentMonth = new Date().getMonth();
+let currentYear = new Date().getFullYear();
 
-// Эта функция получает цитату из файла data.json и выводит её на страницу
+document.addEventListener("DOMContentLoaded", function () {
+  renderCalendar(currentMonth, currentYear);
+
+  // Навигация по мес
+  document.getElementById("prevMonth").addEventListener("click", () => {
+    currentMonth--;
+    if (currentMonth < 0) {
+      currentMonth = 11;
+      currentYear--;
+    }
+    renderCalendar(currentMonth, currentYear);
+  });
+
+  document.getElementById("nextMonth").addEventListener("click", () => {
+    currentMonth++;
+    if (currentMonth > 11) {
+      currentMonth = 0;
+      currentYear++;
+    }
+    renderCalendar(currentMonth, currentYear);
+  });
+});
+
+// Функция получения цитаты из datыыыы
 function getquote() {
   fetch("data.json")
     .then((response) => response.json())
@@ -18,24 +37,75 @@ function getquote() {
     });
 }
 
-// Данные эмоций и календаря
-const emotions = []
-const calendar = document.getElementById("#calendar")
-
-// Рендеринг календаря
-function renderCalendar() {
-calendar.innerHTML = "";
-const daysInMonth = new Date().getDate();
-for (let day = 1; day <= daysInMonth; day++) {
-const date = new Date().toOSOString().split("-").slice(0, 2).join("-") + `-${String(day).padStart(2, "0")}`;
-const emotionsData = emotions.find((e) => e.date === date);
-
-const dayElement = document.createElement("div");
-dayElement.className = "calendr-day";
-    if (emotionsData) {
-  dayElement.dataset.emotion = emotionsData.emotion;
-    };
-dayElement.textContent = day;
-calendar.appendChild(dayElement);
-  };
+// Генерация случайного числа ТЯЖКО
+function getRandomInt(min, max) {
+  return Math.floor(Math.random() * (max - min) + min);
 }
+
+// Рендеринг календаря ВОТ ЭТО ПОСМОТРЕТЬ, МОГУТ БЫТЬ БАГИ
+function renderCalendar(month, year) {
+  const calendar = document.getElementById("calendar");
+  calendar.innerHTML = "";
+
+  const today = new Date();
+  const firstDay = new Date(year, month, 1).getDay();
+  const daysInMonth = new Date(year, month + 1, 0).getDate();
+
+  const monthNames = [
+    "January", "February", "March", "April", "May", "June",
+    "July", "August", "September", "October", "November", "December"
+  ];
+
+  // Заголовок месяца и года (НОРМАЛЬНО)
+  const title = document.createElement("h3");
+  title.textContent = `${monthNames[month]} ${year}`;
+  calendar.appendChild(title);
+
+  // Сетка календаря
+  const daysContainer = document.createElement("div");
+  daysContainer.style.display = "grid";
+  daysContainer.style.gridTemplateColumns = "repeat(7, 1fr)";
+  daysContainer.style.gap = "5px";
+
+  // Заголовки дней недели
+  const weekdays = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  weekdays.forEach(day => {
+    const el = document.createElement("div");
+    el.textContent = day;
+    el.style.fontWeight = "bold";
+    daysContainer.appendChild(el);
+  });
+
+  // Пустые ячейки перед первым днём месяца (ПОСМОТРЕТЬ ЕЩЕ)
+  for (let i = 0; i < firstDay; i++) {
+    daysContainer.appendChild(document.createElement("div"));
+  }
+
+  // Дни месяца
+  for (let day = 1; day <= daysInMonth; day++) {
+    const dayElem = document.createElement("div");
+    dayElem.textContent = day;
+    dayElem.style.border = "1px solid #ccc";
+    dayElem.style.padding = "10px";
+    dayElem.style.textAlign = "center";
+    dayElem.style.borderRadius = "5px";
+
+    // Подсветка сегодняшнего дня
+    if (
+      day === today.getDate() &&
+      month === today.getMonth() &&
+      year === today.getFullYear()
+    ) {
+      dayElem.style.backgroundColor = "#FFDAB9";
+      dayElem.style.fontWeight = "bold";
+    }
+
+    daysContainer.appendChild(dayElem);
+  }
+
+  calendar.appendChild(daysContainer);
+}
+
+
+
+

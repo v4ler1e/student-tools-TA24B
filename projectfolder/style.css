@@ -1,0 +1,11 @@
+#calendar h3 {
+    text-align: center;
+    margin: 10px 0;
+  }
+  
+  #calendersection button {
+    margin: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+  }
+  
