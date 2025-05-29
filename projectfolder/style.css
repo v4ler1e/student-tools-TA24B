@@ -1,11 +1,218 @@
+/* Общий стиль */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f9f9fb;
+  color: #333;
+  margin: 0;
+  padding: 20px;
+}
+
+.container1 {
+  max-width: 900px;
+  margin: auto;
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+}
+
+/* Заголовки */
+header h1 {
+  font-size: 2.5em;
+  color: #4a4a4a;
+  margin-bottom: 0;
+}
+
+header h2 {
+  font-weight: 400;
+  color: #888;
+  margin-top: 5px;
+}
+
+/* Эмоции */
+#emotions-selection {
+  margin-top: 30px;
+  margin-bottom: 40px;
+}
+
+#emotions-selection h2 {
+  margin-bottom: 16px;
+  color: #5c5c5c;
+}
+
+.emotions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.emotions button {
+  background-color: #eaeaea;
+  color: #333;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: 0.2s;
+  font-weight: 500;
+}
+
+.emotions button:hover {
+  background-color: #d4d4d4;
+}
+
+.emotions button.selected {
+  background-color: #c3b0d2;
+  font-weight: bold;
+  color: #ffffff;
+}
+
+/* Текстовое поле */
+#note {
+  width: 100%;
+  min-height: 90px;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  padding: 12px;
+  font-size: 1em;
+  resize: vertical;
+  transition: border 0.3s ease;
+  background-color: #fafafa;
+}
+
+#note:focus {
+  outline: none;
+  border-color: #baa0cf;
+}
+
+/* Кнопка сохранения */
+#savenote {
+  background-color: #baa0cf;
+  color: #fff;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 24px;
+  font-weight: 600;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  margin-top: 10px;
+}
+
+#savenote:hover {
+  background-color: #c5bdcc;
+}
+
+/* Календарь */
+#calendersection {
+  margin-bottom: 40px;
+}
+
+#calendersection h2 {
+  margin-bottom: 10px;
+  color: #5c5c5c;
+}
+
+#calendersection > div {
+  margin-bottom: 10px;
+}
+
+#calendersection button {
+  background-color: #e6e6e6;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+#calendersection button:hover {
+  background-color: #d1d1d1;
+}
+
 #calendar h3 {
-    text-align: center;
-    margin: 10px 0;
-  }
-  
-  #calendersection button {
-    margin: 5px;
-    padding: 5px 10px;
-    cursor: pointer;
-  }
-  
+  text-align: center;
+  margin: 15px 0;
+  color: #444;
+}
+
+#calendar div {
+  transition: 0.2s;
+}
+
+#calendar > div > div {
+  background-color: #fdfdfd;
+  border: 1px solid #e0e0e0;
+  padding: 10px;
+  text-align: center;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+#calendar > div > div:hover {
+  background-color: #f1f1f1;
+}
+
+#calendar .today {
+  background-color: #fff4dd !important;
+  font-weight: bold;
+}
+
+#calendar .selected-day {
+  outline: 3px solid #baa0cf !important;
+}
+
+/* Блок заметок */
+#dayNotes {
+  margin-top: 25px;
+  background-color: #edeaee;
+  border: 1px solid #d9cee2;
+  padding: 20px;
+  border-radius: 12px;
+}
+
+#dayNotes h4 {
+  margin-top: 0;
+  color: #4a4a4a;
+}
+
+/* Цитата */
+#quotesection {
+  margin-top: 30px;
+}
+
+#quotesection h2 {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  font-weight: 600;
+  color: #5c5c5c;
+}
+
+#quotesection button {
+  background-color: #dcdcdc;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: 0.2s;
+}
+
+#quotesection button:hover {
+  background-color: #bfbfbf;
+}
+
+#quote {
+  font-style: italic;
+  border-left: 4px solid #baa0cf;
+  padding-left: 15px;
+  color: #666;
+  margin-top: 10px;
+}
+
+
+
